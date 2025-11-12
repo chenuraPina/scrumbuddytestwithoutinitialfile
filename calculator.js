@@ -115,3 +115,8 @@ function createHistoryItem(entry) {
     listItem.textContent = entry;
     historyList.appendChild(listItem);
 }
+
+// Initialize history on page load
+document.addEventListener('DOMContentLoaded', () => {
+    loadHistory();
+});

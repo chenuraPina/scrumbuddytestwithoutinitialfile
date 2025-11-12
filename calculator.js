@@ -77,6 +77,9 @@ function appendHistory(entry) {
 
     // Add new entry to DOM
     createHistoryItem(entry);
+
+    // Update button state to reflect non-empty list
+    updateClearButtonState();
 }
 
 /**
@@ -97,6 +100,9 @@ function clearHistory() {
     } else {
         console.error('History list element not found');
     }
+
+    // Update button state to reflect empty list
+    updateClearButtonState();
 }
 
 /**
@@ -116,7 +122,34 @@ function createHistoryItem(entry) {
     historyList.appendChild(listItem);
 }
 
+/**
+ * Updates the Clear History button state based on whether history list is empty
+ * Disables button when list is empty, enables when list has items
+ */
+function updateClearButtonState() {
+    const clearButton = document.querySelector('#clear-history');
+    const historyList = document.querySelector('#history-list');
+
+    if (clearButton && historyList) {
+        clearButton.disabled = historyList.children.length === 0;
+    }
+}
+
 // Initialize history on page load
 document.addEventListener('DOMContentLoaded', () => {
     loadHistory();
+    updateClearButtonState();
+
+    // Attach click event listener to Clear History button
+    const clearButton = document.querySelector('#clear-history');
+    if (clearButton) {
+        clearButton.addEventListener('click', () => {
+            const confirmed = window.confirm('Are you sure you want to clear the calculation history?');
+            if (confirmed) {
+                clearHistory();
+            }
+        });
+    } else {
+        console.error('Clear History button not found');
+    }
 });

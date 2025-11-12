@@ -1,1 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickCalc - Simple Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="calc__container">
+        <section class="calc__keypad">
+            <input type="text" readonly id="display" class="calc__display" value="0">
+            <div class="buttons">
+                <button class="calc__button calc__button--number">7</button>
+                <button class="calc__button calc__button--number">8</button>
+                <button class="calc__button calc__button--number">9</button>
+                <button class="calc__button calc__button--operator">/</button>
 
+                <button class="calc__button calc__button--number">4</button>
+                <button class="calc__button calc__button--number">5</button>
+                <button class="calc__button calc__button--number">6</button>
+                <button class="calc__button calc__button--operator">*</button>
+
+                <button class="calc__button calc__button--number">1</button>
+                <button class="calc__button calc__button--number">2</button>
+                <button class="calc__button calc__button--number">3</button>
+                <button class="calc__button calc__button--operator">-</button>
+
+                <button class="calc__button calc__button--number">0</button>
+                <button class="calc__button calc__button--clear">C</button>
+                <button class="calc__button calc__button--equals">=</button>
+                <button class="calc__button calc__button--operator">+</button>
+            </div>
+        </section>
+
+        <section class="calc__history">
+            <h2 class="calc__history-heading">History</h2>
+            <ul id="history-list" class="calc__history-list"></ul>
+            <button id="clear-history" class="calc__button calc__button--clear-history">Clear History</button>
+        </section>
+    </main>
+
+    <script src="calculator.js"></script>
+</body>
+</html>
